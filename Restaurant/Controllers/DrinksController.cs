@@ -1,5 +1,5 @@
-﻿using Contracts;
-using Microsoft.AspNetCore.Http;
+﻿using Contracts.Dtos;
+using Contracts.InterFaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Restaurant.Controllers
@@ -14,11 +14,15 @@ namespace Restaurant.Controllers
             _drinkService = drinkService;
         }
 
-        public List<Class1.DrinksDto> GetDrinks()
+        [HttpGet]
+        [Route("api/Drinks/GetDrinks")]
+        public List<DrinksDto> GetDrinks()
         {
             var hh = _drinkService.GetDrinks();
 
             return hh;
         }
+
+      
     }
 }
