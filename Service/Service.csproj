@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Contracts\Contracts.csproj" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
     <ProjectReference Include="..\Manager\Manager.csproj" />
   </ItemGroup>
 
