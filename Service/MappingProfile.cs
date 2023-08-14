@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using Contracts.Dtos;
+using Domain;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,5 +11,9 @@ namespace Service
 {
     public class MappingProfile : Profile
     {
+        public MappingProfile()
+        {
+            CreateMap<Drinks, DrinksDto>().ReverseMap();
+        }
     }
 }

@@ -1,9 +1,6 @@
 ﻿using AutoMapper;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Contracts.Dtos;
+using Domain;
 
 namespace Service
 {
@@ -11,8 +8,8 @@ namespace Service
     {
         public AutoMapperAPI()
         {
-            //CreateMap<Drink, DrinkDto>();
-            //CreateMap<Food, FoodDto>();
+            CreateMap<Drinks, DrinksDto>();
+            CreateMap<Food, FoodDto>();
         }
     }
 }
