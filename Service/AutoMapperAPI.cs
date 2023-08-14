@@ -11,7 +11,7 @@ namespace Service
     {
         public AutoMapperAPI()
         {
-            //CreateMap<Drink, DrinkDto>();
+            //CreateMap<Drinks, DrinkDto>();
             //CreateMap<Food, FoodDto>();
         }
     }
