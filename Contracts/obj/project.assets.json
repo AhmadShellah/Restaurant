@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\youse\\source\\repos\\Restaurant\\Contracts\\Contracts.csproj",
+      "projectUniqueName": "C:\\Users\\youse\\Source\\Repos\\Restaurantz\\Contracts\\Contracts.csproj",
       "projectName": "Contracts",
-      "projectPath": "C:\\Users\\youse\\source\\repos\\Restaurant\\Contracts\\Contracts.csproj",
+      "projectPath": "C:\\Users\\youse\\Source\\Repos\\Restaurantz\\Contracts\\Contracts.csproj",
       "packagesPath": "C:\\Users\\youse\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\youse\\source\\repos\\Restaurant\\Contracts\\obj\\",
+      "outputPath": "C:\\Users\\youse\\Source\\Repos\\Restaurantz\\Contracts\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\youse\\AppData\\Roaming\\NuGet\\NuGet.Config",

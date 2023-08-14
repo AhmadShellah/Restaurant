@@ -18,11 +18,11 @@ namespace Restaurant.Controllers
         [Route("api/Drinks/GetDrinks")]
         public List<DrinksDto> GetDrinks()
         {
-            var hh = _drinkService.GetDrinks();
+            var DrinkGot = _drinkService.GetDrinks();
 
-            return hh;
+            return DrinkGot;
         }
 
-      
+
     }
 }
