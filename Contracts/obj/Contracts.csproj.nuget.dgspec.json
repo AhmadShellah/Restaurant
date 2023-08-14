@@ -1,31 +1,30 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\2022\\Desktop\\Omar\\Projects\\Restaurant\\Contracts\\Contracts.csproj": {}
+    "C:\\Users\\إلكتروني\\Source\\Repos\\Restaurant\\Contracts\\Contracts.csproj": {}
   },
   "projects": {
-    "C:\\Users\\youse\\Source\\Repos\\Restaurantz\\Contracts\\Contracts.csproj": {
+    "C:\\Users\\إلكتروني\\Source\\Repos\\Restaurant\\Contracts\\Contracts.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\youse\\Source\\Repos\\Restaurantz\\Contracts\\Contracts.csproj",
+        "projectUniqueName": "C:\\Users\\إلكتروني\\Source\\Repos\\Restaurant\\Contracts\\Contracts.csproj",
         "projectName": "Contracts",
-        "projectPath": "C:\\Users\\youse\\Source\\Repos\\Restaurantz\\Contracts\\Contracts.csproj",
-        "packagesPath": "C:\\Users\\youse\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\youse\\Source\\Repos\\Restaurantz\\Contracts\\obj\\",
+        "projectPath": "C:\\Users\\إلكتروني\\Source\\Repos\\Restaurant\\Contracts\\Contracts.csproj",
+        "packagesPath": "C:\\Users\\إلكتروني\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\إلكتروني\\Source\\Repos\\Restaurant\\Contracts\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\DevExpress 21.1\\Components\\Offline Packages",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\youse\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\إلكتروني\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\DevExpress 21.1\\Components\\System\\Components\\Packages": {},
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -38,9 +37,6 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "default"
         }
       },
       "frameworks": {
