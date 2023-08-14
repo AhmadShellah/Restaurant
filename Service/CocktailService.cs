@@ -1,4 +1,5 @@
-﻿using Contracts;
+﻿using Contracts.Dtos;
+using Contracts.InterFaces;
 using Domain;
 using System;
 using System.Collections.Generic;

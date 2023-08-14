@@ -4,12 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Contracts
+namespace Contracts.Dtos
 {
-    public class CocktailDto
+    internal class OrderDto
     {
         public int Id { get; set; }
-        public double Price { get; set; }
-        public string? Name { get; set; }
+
+        DateTime OrderTime { get; set; }
+
+
     }
 }
