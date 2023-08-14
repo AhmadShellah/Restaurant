@@ -371,3 +371,15 @@ FodyWeavers.xsd
 /Contracts/obj/Debug/net6.0/Contracts.AssemblyInfoInputs.cache
 /Contracts/obj/Debug/net6.0/Contracts.GeneratedMSBuildEditorConfig.editorconfig
 /Domain/obj/Debug/net6.0/Domain.assets.cache
+/Contracts/obj/Contracts.csproj.nuget.dgspec.json
+/Contracts/obj/Contracts.csproj.nuget.g.props
+/Contracts/obj/project.assets.json
+/Contracts/obj/project.nuget.cache
+/Domain/obj/Domain.csproj.nuget.dgspec.json
+/Domain/obj/Domain.csproj.nuget.g.props
+/Domain/obj/project.assets.json
+/Domain/obj/project.nuget.cache
+/Manager/obj/Manager.csproj.nuget.dgspec.json
+/Manager/obj/Manager.csproj.nuget.g.props
+/Manager/obj/project.assets.json
+/Manager/obj/project.nuget.cache
