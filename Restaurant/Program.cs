@@ -1,5 +1,6 @@
 
 
+using Contracts;
 using Contracts.InterFaces;
 using Service;
 
@@ -14,9 +15,12 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddSingleton<IDrinkService, DrinkService>();
 builder.Services.AddSingleton<IFoodService, FoodService>();
+builder.Services.AddScoped<IDesertsService, DesertsService>();
+
 builder.Services.AddAutoMapper(typeof(AutoMapperAPI));
 
 var app = builder.Build();
+
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
