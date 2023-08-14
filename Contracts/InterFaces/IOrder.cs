@@ -4,10 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Contracts 
+namespace Contracts.InterFaces
 {
-    public interface ICocktailService
+    public interface IOrder
     {
-        public List<CocktailDto> GetCocktails();
+
+        
+        public void CalculateTotalAmount();
+
     }
 }
