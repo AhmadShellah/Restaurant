@@ -1,8 +1,6 @@
 
 
-
-
-using Contracts;
+using Contracts.InterFaces;
 using Service;
 
 var builder = WebApplication.CreateBuilder(args);
