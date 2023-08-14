@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static Contracts.Class1;
-
-namespace Contracts
+﻿using Contracts.Dtos;
+namespace Contracts.InterFaces
 {
-    public interface  IFoodService
+    public interface IFoodService
     {
-        public List<FoodDto> GetDrinks();
+        public List<FoodDto> GetFoods();
     }
 }

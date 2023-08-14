@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static Contracts.Class1;
+﻿using Contracts.Dtos;
 
-namespace Contracts
+namespace Contracts.InterFaces
 {
     public interface IDrinkService
     {

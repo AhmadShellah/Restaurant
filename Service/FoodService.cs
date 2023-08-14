@@ -1,18 +1,35 @@
-﻿using Contracts;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using AutoMapper;
+using Contracts.Dtos;
+using Contracts.InterFaces;
+using Domain;
 
 namespace Service
 {
+
     public class FoodService : IFoodService
     {
-    
-        public List<Class1.FoodDto> GetDrinks()
+
+        private readonly IMapper _mapper;
+
+
+        public FoodService(IMapper mapper)
         {
-            throw new NotImplementedException();
+            _mapper = mapper;
+
+        }
+
+
+        public List<FoodDto> GetFoods()
+        {
+            var foods = new List<Food>
+            {
+                new Food { Id = 1, Name = "orange", Price = 1.99 },
+                new Food { Id = 2, Name = "burger", Price = 2.49 },
+
+            };
+            var mapping = _mapper.Map<List<Food>, List<FoodDto>>(foods);
+
+            return mapping;
         }
     }
 }
