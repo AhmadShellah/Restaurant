@@ -9,9 +9,7 @@ using System.Threading.Tasks;
 namespace Service
 {
     public class CocktailService : ICocktailService
-    {
-        
-
+    { 
         public List<CocktailDto> GetCocktails()
         {
             List<CocktailDto> listOfCocktailDto = new()

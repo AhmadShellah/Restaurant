@@ -1,5 +1,6 @@
 
 
+using Contracts;
 using Contracts.InterFaces;
 using Service;
 
@@ -14,6 +15,7 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddSingleton<IDrinkService, DrinkService>();
 builder.Services.AddSingleton<IFoodService, FoodService>();
+builder.Services.AddSingleton<ICocktailService, CocktailService>();
 builder.Services.AddAutoMapper(typeof(AutoMapperAPI));
 
 var app = builder.Build();
