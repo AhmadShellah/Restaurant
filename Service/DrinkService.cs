@@ -1,17 +1,24 @@
-﻿using Contracts;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Contracts.Dtos;
+using Contracts.InterFaces;
+
 
 namespace Service
 {
     public class DrinkService : IDrinkService
     {
-        public List<Class1.DrinksDto> GetDrinks()
+        
+        public List<DrinksDto> GetDrinks()
         {
-            throw new NotImplementedException();
+            List<DrinksDto> drinks = new List<DrinksDto>
+            {
+                new DrinksDto { Id = 1, Name = "Cola", Price = 1.99 },
+                new DrinksDto { Id = 2, Name = "Orange Juice", Price = 2.49 },
+
+            };
+
+            return drinks;
+            
+
         }
     }
 }
