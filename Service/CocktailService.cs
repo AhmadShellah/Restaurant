@@ -1,4 +1,5 @@
-﻿using Contracts;
+﻿using AutoMapper;
+using Contracts;
 using Domain;
 using System;
 using System.Collections.Generic;
@@ -10,17 +11,25 @@ namespace Service
 {
     public class CocktailService : ICocktailService
     {
-        
+        private readonly IMapper _mapper;
+
+        public CocktailService(IMapper mapper)
+        {
+            _mapper = mapper;
+        }
 
         public List<CocktailDto> GetCocktails()
         {
-            List<CocktailDto> listOfCocktailDto = new()
+            List<Cocktail> listOfCocktail = new()
             {
-                new CocktailDto { Id = 1, Price = 10, Name = "Test Cocktail 1"},
-                new CocktailDto { Id = 2, Price = 20, Name = "Test Cocktail 2"},
-                new CocktailDto { Id = 3, Price = 30, Name = "Test Cocktail 3"}
+                new Cocktail { Id = 1, Price = 10, Name = "Test Cocktail 1"},
+                new Cocktail { Id = 2, Price = 20, Name = "Test Cocktail 2"},
+                new Cocktail { Id = 3, Price = 30, Name = "Test Cocktail 3"}
             };
-            return listOfCocktailDto;
+
+            var mapping = _mapper.Map<List<Cocktail>, List<CocktailDto>>(listOfCocktail);
+
+            return mapping;
         }
     }
 }
