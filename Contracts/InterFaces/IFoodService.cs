@@ -1,4 +1,5 @@
 ﻿using Contracts.Dtos;
+
 namespace Contracts.InterFaces
 {
     public interface IFoodService
