@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using Contracts.Dtos;
+using Contracts;
 using Domain;
 
 namespace Service
@@ -8,8 +8,7 @@ namespace Service
     {
         public AutoMapperAPI()
         {
-            //CreateMap<Drinks, DrinkDto>();
-            //CreateMap<Food, FoodDto>();
+            CreateMap<Deserts, DesertsDto>();
         }
     }
 }
