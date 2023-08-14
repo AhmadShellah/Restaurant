@@ -1,3 +1,5 @@
+
+
 using Contracts.InterFaces;
 using Service;
 
@@ -28,5 +30,4 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
-
 app.Run();

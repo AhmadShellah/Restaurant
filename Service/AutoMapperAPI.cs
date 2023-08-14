@@ -8,8 +8,8 @@ namespace Service
     {
         public AutoMapperAPI()
         {
-            CreateMap<Drinks, DrinksDto>();
-            CreateMap<Food, FoodDto>();
+            //CreateMap<Drinks, DrinkDto>();
+            //CreateMap<Food, FoodDto>();
         }
     }
 }
