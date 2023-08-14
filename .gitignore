@@ -361,3 +361,13 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/Manager/obj/Debug/net6.0/Manager.GeneratedMSBuildEditorConfig.editorconfig
+/Manager/obj/Debug/net6.0/Manager.AssemblyInfoInputs.cache
+/Manager/obj/Debug/net6.0/Manager.assets.cache
+/Manager/obj/Debug/net6.0/Manager.csproj.AssemblyReference.cache
+/Domain/obj/Debug/net6.0/Domain.GeneratedMSBuildEditorConfig.editorconfig
+/Domain/obj/Debug/net6.0/Domain.AssemblyInfoInputs.cache
+/Contracts/obj/Debug/net6.0/Contracts.assets.cache
+/Contracts/obj/Debug/net6.0/Contracts.AssemblyInfoInputs.cache
+/Contracts/obj/Debug/net6.0/Contracts.GeneratedMSBuildEditorConfig.editorconfig
+/Domain/obj/Debug/net6.0/Domain.assets.cache
