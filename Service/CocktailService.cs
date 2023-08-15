@@ -1,5 +1,8 @@
 ﻿using AutoMapper;
 using Contracts;
+using Contracts.CreateObject;
+using Contracts.Dtos;
+using Contracts.InterFaces;
 using Domain;
 using System;
 using System.Collections.Generic;
@@ -28,6 +31,31 @@ namespace Service
             };
 
             var mapping = _mapper.Map<List<Cocktail>, List<CocktailDto>>(listOfCocktail);
+
+            return mapping;
+        }
+        public void CreateCocktail(int id, string name, double price)
+        {
+            CreateCocktailDto NewCocktail = new CreateCocktailDto
+            {
+                Id = id,
+                Name = name,
+                Price = price
+            }; 
+        }
+        public List<CocktailDto> UpdateCocktail(int id, string name, double price)
+        {
+            List<CocktailDto> allCocktails = GetCocktails();
+            foreach(CocktailDto cocktail in  allCocktails)
+            {
+                if(cocktail.Id == id)
+                {
+                    cocktail.Name = name;
+                    cocktail.Price = price;
+                    break;
+                }
+            }
+            var mapping = _mapper.Map<List<CocktailDto>>(allCocktails);
 
             return mapping;
         }
