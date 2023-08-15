@@ -11,6 +11,6 @@ namespace Contracts.InterFaces
     {
         public List<CocktailDto> GetCocktails();
         public void CreateCocktail(int id, string name, double price);
-        public void UpdateCocktail(int id, string name, double price);
+        public List<CocktailDto> UpdateCocktail(int id, string name, double price);
     }
 }
