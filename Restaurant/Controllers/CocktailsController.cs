@@ -1,6 +1,5 @@
 ﻿using Contracts.Dtos;
 using Contracts.InterFaces;
-using Domain;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Restaurant.Controllers
