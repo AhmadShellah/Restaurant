@@ -1,6 +1,3 @@
-
-
-using Contracts;
 using Contracts.InterFaces;
 using Service;
 

@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "V7JmS8lQRx44ejcn8PiCpbmy2yQbtV8rnuySbZAh+D9PMh1pnwGFk39LNHEVaXOmzR9Ur7S/xbL3u9TBomzajg==",
+  "dgSpecHash": "+THGDd8/V233IwxFpIzB1Va9FsMt67IJDAEo1YYX6dEwDs/NBL9ShX9fTD5AI6cAe1vZqaNX4iu02AQFqqwPMg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\2022\\Desktop\\Omar\\Projects\\Restaurant\\Contracts\\Contracts.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\إلكتروني\\Source\\Repos\\Restaurant\\Contracts\\Contracts.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\إلكتروني\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
+    "C:\\Users\\إلكتروني\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512"
+  ],
   "logs": []
 }
