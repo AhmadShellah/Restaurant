@@ -7,7 +7,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Restaurant.Controllers
 {
-    public class CocktailsController : ICocktailService
+    [ApiController]
+    public class CocktailsController : Controller, ICocktailService
     {
         private readonly ICocktailService _cocktailService;
 
