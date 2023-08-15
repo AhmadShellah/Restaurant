@@ -9,6 +9,5 @@ namespace Contracts.UpdateObject
 {
     public class UpdateCocktailDto : CreateCocktailDto
     {
-        public new int Id { get; set; }
     }
 }

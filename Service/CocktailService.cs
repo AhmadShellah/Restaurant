@@ -3,6 +3,7 @@ using Contracts;
 using Contracts.CreateObject;
 using Contracts.Dtos;
 using Contracts.InterFaces;
+using Contracts.UpdateObject;
 using Domain;
 using System;
 using System.Collections.Generic;
@@ -34,30 +35,41 @@ namespace Service
 
             return mapping;
         }
-        public void CreateCocktail(int id, string name, double price)
+        public List<CocktailDto> CreateCocktail(CreateCocktailDto createCocktailDto)
         {
-            CreateCocktailDto NewCocktail = new CreateCocktailDto
-            {
-                Id = id,
-                Name = name,
-                Price = price
-            }; 
-        }
-        public List<CocktailDto> UpdateCocktail(int id, string name, double price)
-        {
-            List<CocktailDto> allCocktails = GetCocktails();
-            foreach(CocktailDto cocktail in  allCocktails)
-            {
-                if(cocktail.Id == id)
-                {
-                    cocktail.Name = name;
-                    cocktail.Price = price;
-                    break;
-                }
-            }
-            var mapping = _mapper.Map<List<CocktailDto>>(allCocktails);
+            var allCocktails = GetCocktails();
 
-            return mapping;
+            var mappedCocktail = _mapper.Map<Cocktail>(createCocktailDto);
+            
+            var mappedCocktailDto = _mapper.Map<CocktailDto>(mappedCocktail);
+            
+            allCocktails.Add(mappedCocktailDto);
+
+            return allCocktails;
+            
+        }
+        public List<CocktailDto> UpdateCocktail(UpdateCocktailDto updateCocktailDto)
+        {
+            var allCocktails = GetCocktails();
+
+            if(updateCocktailDto == null)
+            {
+                return GetCocktails();
+            }
+
+            var matchingCocktailDto = allCocktails.FirstOrDefault(cocktailDto => cocktailDto.Id == updateCocktailDto.Id);
+
+            if (matchingCocktailDto != null)
+            {
+                matchingCocktailDto.Price = updateCocktailDto.Price;
+                matchingCocktailDto.Name = updateCocktailDto.Name;
+            }
+
+            var mappedCocktail = _mapper.Map<Cocktail>(matchingCocktailDto);
+
+            var mappedCocktailDto = _mapper.Map<CocktailDto>(mappedCocktail);
+
+            return allCocktails;
         }
     }
 }

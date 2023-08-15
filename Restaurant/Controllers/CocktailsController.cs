@@ -1,5 +1,7 @@
-﻿using Contracts.Dtos;
+﻿using Contracts.CreateObject;
+using Contracts.Dtos;
 using Contracts.InterFaces;
+using Contracts.UpdateObject;
 using Domain;
 using Microsoft.AspNetCore.Mvc;
 
@@ -19,6 +21,20 @@ namespace Restaurant.Controllers
         public List<CocktailDto> GetCocktails()
         {
             return _cocktailService.GetCocktails();
+        }
+
+        [HttpPost]
+        [Route("api/Cocktails/CreateCocktail")]
+        public List<CocktailDto> CreateCocktail(CreateCocktailDto createCocktailDto)
+        {
+            return _cocktailService.CreateCocktail(createCocktailDto);
+        }
+
+        [HttpPost]
+        [Route("api/Cocktails/UpdateCocktail")]
+        public List<CocktailDto> UpdateCocktail([FromBody]UpdateCocktailDto updateCocktailDto)
+        {
+            return _cocktailService.UpdateCocktail(updateCocktailDto);
         }
     }
 }
