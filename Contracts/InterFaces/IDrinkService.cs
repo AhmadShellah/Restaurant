@@ -10,6 +10,8 @@ namespace Contracts.InterFaces
         List<DrinksDto> CreateDrink(CreateDrinkDto createDrinkDto);
         List<DrinksDto> UpdateDrink(UpdateDrinkDto updateDrinkDto);
 
+        DrinksDto GetDrinkById(int id);
+
 
     }
 }
