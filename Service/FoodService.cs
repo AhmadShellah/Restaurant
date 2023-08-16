@@ -53,15 +53,33 @@ namespace Service
 
             var mapping = _mapper.Map<UpdateFoodDto, Food>(updateFoodDto);
             var mapping2 = _mapper.Map<Food, FoodDto>(mapping);
-            var matchedDrink = listFoods.FirstOrDefault(drink => drink.Id == mapping2.Id);
-            if (matchedDrink != null)
+            var matchedFood = listFoods.FirstOrDefault(food => food.Id == mapping2.Id);
+            if (matchedFood != null)
             {
-                matchedDrink.Name = mapping2.Name;
-                matchedDrink.Price = mapping2.Price;
+                matchedFood.Name = mapping2.Name;
+                matchedFood.Price = mapping2.Price;
             }
 
             return listFoods;
 
         }
+
+
+        public FoodDto GetFoodById(int id)
+        {
+            var listFoods = GetFoods();
+
+
+            var matchedFood = listFoods.FirstOrDefault(food => food.Id == id);
+
+            var mapping = _mapper.Map<FoodDto, Food>(matchedFood);
+            var mapping2= _mapper.Map<Food, FoodDto>(mapping);
+
+            return mapping2;
+
+
+        }
+
+
     }
 }

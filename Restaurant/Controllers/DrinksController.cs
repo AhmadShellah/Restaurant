@@ -35,7 +35,7 @@ namespace Restaurant.Controllers
             return createdDrinkDto;
         }
 
-        [HttpPost]
+        [HttpPut]
         [Route("api/Drinks/UpdateDrinks")]
 
         public List<DrinksDto> UpdateDrink(UpdateDrinkDto updateDrinkDto)
@@ -44,5 +44,14 @@ namespace Restaurant.Controllers
             return updatedDrinkDto;
         }
 
+
+        [HttpGet]
+        [Route("api/Drinks/GetDrinksById")]
+        public DrinksDto GetDrinkById(int id)
+        {
+            var DrinkGotById = _drinkService.GetDrinkById(id);
+
+            return DrinkGotById;
+        }
     }
 }
