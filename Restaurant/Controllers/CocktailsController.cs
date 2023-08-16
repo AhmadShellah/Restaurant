@@ -31,11 +31,18 @@ namespace Restaurant.Controllers
             return _cocktailService.CreateCocktail(createCocktailDto);
         }
 
-        [HttpPost]
+        [HttpPut]
         [Route("api/Cocktails/UpdateCocktail")]
         public List<CocktailDto> UpdateCocktail([FromBody]UpdateCocktailDto updateCocktailDto)
         {
             return _cocktailService.UpdateCocktail(updateCocktailDto);
+        }
+
+        [HttpGet]
+        [Route("api/Cocktails/GetCocktailById")]
+        public CocktailDto GetCocktailById(int id)
+        {
+            return _cocktailService.GetCocktailById(id);
         }
     }
 }
