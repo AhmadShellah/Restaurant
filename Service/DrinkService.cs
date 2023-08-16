@@ -61,18 +61,6 @@ namespace Service
 
         }
 
-        public DrinksDto GetDrinkById(int id)
-        {
-            var listDrinks = GetDrinks();
 
-
-            var matchedDrink = listDrinks.FirstOrDefault(drink => drink.Id == id);
-
-            var mapping = _mapper.Map<DrinksDto, Drinks>(matchedDrink);
-            var mapping2 = _mapper.Map<Drinks, DrinksDto>(mapping);
-
-            return mapping2;
-
-        }
     }
 }

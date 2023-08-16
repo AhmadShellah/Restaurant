@@ -34,24 +34,13 @@ namespace Restaurant.Controllers
             return createdFoodDto;
         }
 
-        [HttpPut]
+        [HttpPost]
         [Route("api/Drinks/UpdateFoods")]
 
         public List<FoodDto> UpdateFood(UpdateFoodDto updateFoodDto)
         {
             var updatedDrinkDto = _foodService.UpdateFood(updateFoodDto);
             return updatedDrinkDto;
-        }
-
-
-
-        [HttpGet]
-        [Route("api/Drinks/GetFoodById")]
-        public FoodDto GetFoodById(int id)
-        {
-            var FoodGotById = _foodService.GetFoodById(id);
-
-            return FoodGotById;
         }
 
     }

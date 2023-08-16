@@ -9,7 +9,6 @@ namespace Contracts.InterFaces
         public List<FoodDto> GetFoods();
        List<FoodDto> CreateFood(CreateFoodDto createFoodDto);
        List<FoodDto> UpdateFood(UpdateFoodDto updateFoodDto);
-       FoodDto GetFoodById(int id);
 
 
     }
