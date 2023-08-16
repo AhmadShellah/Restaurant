@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "V7JmS8lQRx44ejcn8PiCpbmy2yQbtV8rnuySbZAh+D9PMh1pnwGFk39LNHEVaXOmzR9Ur7S/xbL3u9TBomzajg==",
+  "dgSpecHash": "wRkysVRlmEVrwI/AhRvccijg/HsbjT3nEN0cZ3YdUeuZOXDChNv9/oYBqRlYD54XEZWrlurueQFc0Axg9hCOKg==",
   "success": true,
   "projectFilePath": "C:\\Users\\2022\\Desktop\\Omar\\Projects\\Restaurant\\Contracts\\Contracts.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\2022\\.nuget\\packages\\microsoft.win32.systemevents\\7.0.0\\microsoft.win32.systemevents.7.0.0.nupkg.sha512",
+    "C:\\Users\\2022\\.nuget\\packages\\system.drawing.common\\7.0.0\\system.drawing.common.7.0.0.nupkg.sha512"
+  ],
   "logs": []
 }

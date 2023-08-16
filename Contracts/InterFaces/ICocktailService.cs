@@ -12,7 +12,11 @@ namespace Contracts.InterFaces
     public interface ICocktailService
     {
         public List<CocktailDto> GetCocktails();
+
         public List<CocktailDto> CreateCocktail(CreateCocktailDto createCocktailDto);
+
         public List<CocktailDto> UpdateCocktail(UpdateCocktailDto updateCocktailDto);
+        
+        public CocktailDto GetCocktailById(int id);
     }
 }

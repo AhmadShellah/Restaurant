@@ -66,10 +66,25 @@ namespace Service
             }
 
             var mappedCocktail = _mapper.Map<Cocktail>(matchingCocktailDto);
+            
+            //There is supposed to be a line to send the original object to the database
 
             var mappedCocktailDto = _mapper.Map<CocktailDto>(mappedCocktail);
 
             return allCocktails;
         }
+        public CocktailDto GetCocktailById(int id)
+        {
+            var allCocktails = GetCocktails();
+
+            var matchingCocktailWithSameId = allCocktails.FirstOrDefault(cocktail => cocktail.Id == id);
+
+            var returnedCocktail = _mapper.Map<Cocktail>(matchingCocktailWithSameId);
+
+            var returnedCocktailDto = _mapper.Map<CocktailDto>(returnedCocktail);
+
+            return returnedCocktailDto;
+        }
+
     }
 }

@@ -9,6 +9,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Contracts\Contracts.csproj" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
+    <PackageReference Include="Spire.Barcode" Version="7.2.0" />
     <ProjectReference Include="..\Manager\Manager.csproj" />
   </ItemGroup>
 
