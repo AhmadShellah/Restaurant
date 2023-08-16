@@ -1,10 +1,9 @@
-﻿namespace Domain
+﻿namespace Contracts.Dtos
 {
-    public class Deserts
+    public class DesertsDto
     {
         public int Id { set; get; }
         public string Name { set; get; }
         public int Price { set; get; }
-
     }
 }

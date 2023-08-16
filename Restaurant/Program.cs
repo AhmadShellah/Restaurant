@@ -1,5 +1,3 @@
-
-
 using Contracts;
 using Contracts.InterFaces;
 using Service;
@@ -13,7 +11,9 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddSingleton<IDrinkService,DrinkService>();
+builder.Services.AddSingleton<IQRCodeGeneratorByOmar, QRCodeGeneratorByOmarService>();
 builder.Services.AddSingleton<IFoodService, FoodService>();
+builder.Services.AddSingleton<ICocktailService, CocktailService>();
 builder.Services.AddScoped<IDesertsService, DesertsService>();
 
 builder.Services.AddAutoMapper(typeof(AutoMapperAPI));

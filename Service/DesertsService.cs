@@ -1,24 +1,38 @@
-﻿using AutoMapper;
-using Contracts;
-using Domain;
+﻿
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using AutoMapper;
+using Contracts.CreateObject;
+using Contracts.Dtos;
+using Contracts.InterFaces;
+using Contracts.UpdateObject;
+using Domain;
 
 namespace Service
 {
     public class DesertsService : IDesertsService
     {
         private readonly IMapper _mapper;
+      //  private readonly IMapper _newdesertmapper;
 
         public DesertsService(IMapper mapper)
         {
             _mapper = mapper;
         }
 
-        public List<Contracts.DesertsDto> GetDeserts()
+        public List<DesertsDto> CreateDeserts(CreateDesertsDto inputFromUser)
+        {
+
+            var AllDeserts = GetDeserts();
+
+            var mapping = _mapper?.Map<CreateDesertsDto, Deserts >(inputFromUser);
+            var mapping2 = _mapper.Map<Deserts, DesertsDto>(mapping);
+            AllDeserts.Add(mapping2);
+
+            return AllDeserts;
+
+        }
+
+        public List<DesertsDto> GetDeserts()
         {
             var deserts = new List<Deserts>()
             {
@@ -31,5 +45,28 @@ namespace Service
             return mapping;
         }
 
+        public List<DesertsDto> UpdateDeserts(UpdateDesertsDto inputFromUser)
+        {
+           
+            var AllDeserts = GetDeserts();
+            var matchingDesert = AllDeserts.FirstOrDefault(desert => desert.Id == inputFromUser.Id);
+            if (matchingDesert != null)
+            {
+                matchingDesert.Id = inputFromUser.Id;
+                matchingDesert.Name = inputFromUser.Name;
+                matchingDesert.Price = inputFromUser.Price;
+            }
+            var mapping = _mapper.Map<DesertsDto, Deserts>(matchingDesert);
+
+            var mapping2 = _mapper.Map<Deserts, DesertsDto>(mapping);
+
+            //AllDeserts=GetDeserts();
+            return AllDeserts; 
+
+        }
+
+    
+
+       
     }
 }

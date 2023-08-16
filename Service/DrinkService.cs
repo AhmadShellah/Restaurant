@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
+using Contracts.CreateObject;
 using Contracts.Dtos;
 using Contracts.InterFaces;
+using Contracts.UpdateObject;
 using Domain;
 
 namespace Service
@@ -29,5 +31,48 @@ namespace Service
             return mapping;
         }
 
+        public List<DrinksDto> CreateDrink(CreateDrinkDto createDrinkDto)
+        {
+            var ListDrinks = GetDrinks();
+            var mapping = _mapper.Map<CreateDrinkDto, Drinks>(createDrinkDto);
+            var mapping2 = _mapper.Map<Drinks, DrinksDto>(mapping);
+
+            ListDrinks.Add(mapping2);
+
+
+            return ListDrinks;
+
+        }
+
+        public List<DrinksDto> UpdateDrink(UpdateDrinkDto updateDrinkDto)
+        {
+            var listDrinks = GetDrinks();
+
+            var mapping = _mapper.Map<UpdateDrinkDto, Drinks>(updateDrinkDto);
+            var mapping2 = _mapper.Map<Drinks, DrinksDto>(mapping);
+            var matchedDrink = listDrinks.FirstOrDefault(drink => drink.Id == mapping2.Id);
+            if (matchedDrink != null)
+            {
+                matchedDrink.Name = mapping2.Name;
+                matchedDrink.Price = mapping2.Price;
+            }
+
+            return listDrinks;
+
+        }
+
+        public DrinksDto GetDrinkById(int id)
+        {
+            var listDrinks = GetDrinks();
+
+
+            var matchedDrink = listDrinks.FirstOrDefault(drink => drink.Id == id);
+
+            var mapping = _mapper.Map<DrinksDto, Drinks>(matchedDrink);
+            var mapping2 = _mapper.Map<Drinks, DrinksDto>(mapping);
+
+            return mapping2;
+
+        }
     }
 }

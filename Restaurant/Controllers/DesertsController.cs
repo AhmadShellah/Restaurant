@@ -1,4 +1,7 @@
-﻿using Contracts;
+﻿using Contracts.CreateObject;
+using Contracts.Dtos;
+using Contracts.InterFaces;
+using Contracts.UpdateObject;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Restaurant.Controllers
@@ -11,6 +14,19 @@ namespace Restaurant.Controllers
         {
             _desertService = DesertsService;
         }
+        [HttpPost]
+        [Route("api/CreateDesertDTO/CreateDeserts")]
+        public List<DesertsDto> CreateDeserts(CreateDesertsDto inputFromUser)
+        {
+            var NewDes = _desertService.CreateDeserts(inputFromUser);
+            return NewDes;
+        }
+
+        //public DesertsDto UpdateDeserts(CreateDesertsDto inputFromUser)
+        //{
+        //    var NewDes = _desertService.CreateDeserts(inputFromUser);
+        //    return NewDes;
+        //}
 
         [HttpGet]
         [Route("api/Deserts/GetDeserts")]
@@ -21,8 +37,13 @@ namespace Restaurant.Controllers
             return Des;
         }
 
-
-
-
+        [HttpPost]
+        [Route("api/UpdateDesertsDto/UpdateDeserts")]
+        public List<DesertsDto> UpdateDeserts(UpdateDesertsDto inputFromUser)
+        {
+            var UpdatedDeserts = _desertService.UpdateDeserts(inputFromUser);
+            return UpdatedDeserts;
+            
+        }
     }
 }
