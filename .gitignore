@@ -383,17 +383,3 @@ FodyWeavers.xsd
 /Manager/obj/Manager.csproj.nuget.g.props
 /Manager/obj/project.assets.json
 /Manager/obj/project.nuget.cache
-/Manager/obj/Debug/net6.0/Manager.csproj.AssemblyReference.cache
-/Restaurant/bin/Debug/net6.0/Service.pdb
-/Contracts/bin/Debug/net6.0/Contracts.dll
-/Contracts/bin/Debug/net6.0/Contracts.pdb
-/Contracts/obj/Debug/net6.0/Contracts.csproj.CoreCompileInputs.cache
-/Contracts/obj/Debug/net6.0/Contracts.dll
-/Contracts/obj/Debug/net6.0/Contracts.pdb
-/Contracts/obj/Debug/net6.0/ref/Contracts.dll
-/Contracts/obj/Debug/net6.0/refint/Contracts.dll
-/Restaurant/bin/Debug/net6.0/Contracts.dll
-/Restaurant/bin/Debug/net6.0/Contracts.pdb
-/Restaurant/bin/Debug/net6.0/Restaurant.dll
-/Restaurant/bin/Debug/net6.0/Restaurant.pdb
-/Restaurant/bin/Debug/net6.0/Service.dll
