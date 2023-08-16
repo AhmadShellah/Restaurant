@@ -1,6 +1,9 @@
-﻿using Contracts.Dtos;
+﻿using Contracts.CreateObject;
+using Contracts.Dtos;
 using Contracts.InterFaces;
+using Contracts.UpdateObject;
 using Microsoft.AspNetCore.Mvc;
+using Service;
 
 namespace Restaurant.Controllers
 {
@@ -23,6 +26,22 @@ namespace Restaurant.Controllers
             return FoodGot;
         }
 
+        [HttpPost]
+        [Route("api/Food/CreateFood")]
+        public List<FoodDto> CreateFood(CreateFoodDto createFoodDto)
+        {
+            var createdFoodDto = _foodService.CreateFood(createFoodDto);
+            return createdFoodDto;
+        }
+
+        [HttpPost]
+        [Route("api/Drinks/UpdateFoods")]
+
+        public List<FoodDto> UpdateFood(UpdateFoodDto updateFoodDto)
+        {
+            var updatedDrinkDto = _foodService.UpdateFood(updateFoodDto);
+            return updatedDrinkDto;
+        }
 
     }
 }
