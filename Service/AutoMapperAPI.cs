@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using Contracts;
+using Contracts.Dtos;
 using Domain;
 
 namespace Service

@@ -1,13 +1,7 @@
 ﻿using AutoMapper;
-using Contracts;
 using Contracts.Dtos;
 using Contracts.InterFaces;
 using Domain;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Service
 {
