@@ -1,7 +1,15 @@
 ﻿using AutoMapper;
+using Contracts;
+using Contracts.CreateObject;
 using Contracts.Dtos;
 using Contracts.InterFaces;
+using Contracts.UpdateObject;
 using Domain;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Service
 {
@@ -26,6 +34,42 @@ namespace Service
             var mapping = _mapper.Map<List<Cocktail>, List<CocktailDto>>(listOfCocktail);
 
             return mapping;
+        }
+        public List<CocktailDto> CreateCocktail(CreateCocktailDto createCocktailDto)
+        {
+            var allCocktails = GetCocktails();
+
+            var mappedCocktail = _mapper.Map<Cocktail>(createCocktailDto);
+            
+            var mappedCocktailDto = _mapper.Map<CocktailDto>(mappedCocktail);
+            
+            allCocktails.Add(mappedCocktailDto);
+
+            return allCocktails;
+            
+        }
+        public List<CocktailDto> UpdateCocktail(UpdateCocktailDto updateCocktailDto)
+        {
+            var allCocktails = GetCocktails();
+
+            if(updateCocktailDto == null)
+            {
+                return GetCocktails();
+            }
+
+            var matchingCocktailDto = allCocktails.FirstOrDefault(cocktailDto => cocktailDto.Id == updateCocktailDto.Id);
+
+            if (matchingCocktailDto != null)
+            {
+                matchingCocktailDto.Price = updateCocktailDto.Price;
+                matchingCocktailDto.Name = updateCocktailDto.Name;
+            }
+
+            var mappedCocktail = _mapper.Map<Cocktail>(matchingCocktailDto);
+
+            var mappedCocktailDto = _mapper.Map<CocktailDto>(mappedCocktail);
+
+            return allCocktails;
         }
     }
 }
