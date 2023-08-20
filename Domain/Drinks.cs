@@ -1,8 +1,9 @@
-﻿namespace Domain
+﻿using BaseClass;
+
+namespace Domain
 {
-    public class Drinks
+    public class Drinks: AbstactClass
     {
-        public int Id { get; set; }
         public string Name { get; set; }
         public double Price { get; set; }
 
