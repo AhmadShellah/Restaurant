@@ -4,6 +4,6 @@ namespace Contracts.InterFaces
 {
     public interface IMenu
     {
-        public MenuDto GetMenu();
+        public Task<MenuDto> GetMenu();
     }
 }

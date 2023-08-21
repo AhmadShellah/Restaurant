@@ -11,12 +11,14 @@ namespace Contracts.InterFaces
 {
     public interface ICocktailService
     {
-        public List<CocktailDto> GetCocktails();
+        public Task<List<CocktailDto>> GetCocktails();
 
-        public List<CocktailDto> CreateCocktail(CreateCocktailDto createCocktailDto);
+        public Task<bool> CreateCocktail(CreateCocktailDto createCocktailDto);
 
-        public List<CocktailDto> UpdateCocktail(UpdateCocktailDto updateCocktailDto);
+        public Task<bool> UpdateCocktail(UpdateCocktailDto updateCocktailDto);
         
-        public CocktailDto GetCocktailById(int id);
+        public Task<CocktailDto> GetCocktailById(int id);
+
+        public Task<bool> DeleteCocktail(int id);
     }
 }
