@@ -15,6 +15,8 @@ builder.Services.AddSingleton<IQRCodeGeneratorByOmar, QRCodeGeneratorByOmarServi
 builder.Services.AddSingleton<IFoodService, FoodService>();
 builder.Services.AddSingleton<ICocktailService, CocktailService>();
 builder.Services.AddScoped<IDesertsService, DesertsService>();
+builder.Services.AddSingleton<IHotDrinkService, HotDrinkService>();
+
 
 builder.Services.AddAutoMapper(typeof(AutoMapperAPI));
 
