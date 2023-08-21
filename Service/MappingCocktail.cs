@@ -18,6 +18,8 @@ namespace Service
         {
             CreateMap<Cocktail,CocktailDto>().ReverseMap();
             CreateMap<CocktailDto,CreateCocktailDto>().ReverseMap();
+            CreateMap<Cocktail,CreateCocktailDto>().ReverseMap();
+            CreateMap<Cocktail,UpdateCocktailDto>().ReverseMap();
             CreateMap<CocktailDto, UpdateCocktailDto>().ReverseMap();
         }
     }

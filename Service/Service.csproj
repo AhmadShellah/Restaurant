@@ -21,6 +21,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Spire.Barcode" Version="7.2.0" />
+    <ProjectReference Include="..\Entity\Entity.csproj" />
     <ProjectReference Include="..\Manager\Manager.csproj" />
   </ItemGroup>
 

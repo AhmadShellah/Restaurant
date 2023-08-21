@@ -16,13 +16,13 @@ namespace Service
             _cocktailService = cocktailService;
         }
 
-        public MenuDto GetMenu()
+        public async Task<MenuDto> GetMenu()
         {
             var menu = new MenuDto();
 
             var drinkDto = _drinkService.GetDrinks();
             var foodDto = _foodService.GetFoods();
-            var cocktailDto = _cocktailService.GetCocktails();
+            var cocktailDto = await _cocktailService.GetCocktails();
 
             menu.Drinks = drinkDto;
             menu.Foods = foodDto;
