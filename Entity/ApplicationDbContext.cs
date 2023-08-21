@@ -9,6 +9,7 @@ namespace Entity
                      options.UseSqlServer(@"Data Source=DESKTOP-DLTH8DC;Initial Catalog=Restaurent;Integrated Security=True;TrustServerCertificate=True");
 
         public DbSet<Drinks> Drinkss { get; set; }
+        public DbSet<Food> Foods { get; set; }
 
 
 
