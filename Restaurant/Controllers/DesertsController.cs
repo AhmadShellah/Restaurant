@@ -22,11 +22,6 @@ namespace Restaurant.Controllers
             return NewDes;
         }
 
-        //public DesertsDto UpdateDeserts(CreateDesertsDto inputFromUser)
-        //{
-        //    var NewDes = _desertService.CreateDeserts(inputFromUser);
-        //    return NewDes;
-        //}
 
         [HttpGet]
         [Route("api/Deserts/GetDeserts")]

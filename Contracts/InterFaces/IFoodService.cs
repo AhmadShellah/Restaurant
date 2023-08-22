@@ -6,10 +6,11 @@ namespace Contracts.InterFaces
 {
     public interface IFoodService
     {
-        public List<FoodDto> GetFoods();
-       List<FoodDto> CreateFood(CreateFoodDto createFoodDto);
-       List<FoodDto> UpdateFood(UpdateFoodDto updateFoodDto);
-       FoodDto GetFoodById(int id);
+        public Task<List<FoodDto>> GetFoods();
+       public Task CreateFood(CreateFoodDto createFoodDto);
+        public Task UpdateFood(UpdateFoodDto updateFoodDto);
+        public Task<FoodDto> GetFoodById(int id);
+        public Task DeleteFoodById(int id);
 
 
     }

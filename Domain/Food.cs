@@ -1,8 +1,7 @@
 ﻿namespace Domain
 {
-    public class Food
+    public class Food : BaseClass
     {
-        public int Id { get; set; }
         public string Name { get; set; }
         public double Price { get; set; }
 
