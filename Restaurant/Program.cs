@@ -7,19 +7,24 @@ using Service;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString(@"Data Source=DESKTOP-4V00ANF;Initial Catalog=Restaurent;Integrated Security=True;TrustServerCertificate=True")));
+builder.Services.AddMemoryCache();
+
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddTransient<IDrinkService,DrinkService>();
-builder.Services.AddTransient<IQRCodeGeneratorByOmar, QRCodeGeneratorByOmarService>();
-builder.Services.AddTransient<IFoodService, FoodService>();
+builder.Services.AddSingleton<IDrinkService,DrinkService>();
+builder.Services.AddSingleton<IQRCodeGeneratorByOmar, QRCodeGeneratorByOmarService>();
+builder.Services.AddSingleton<IFoodService, FoodService>();
 builder.Services.AddTransient<ICocktailService, CocktailService>();
 builder.Services.AddScoped<IDesertsService, DesertsService>();
+builder.Services.AddSingleton<IHotDrinkService, HotDrinkService>();
+
 
 builder.Services.AddAutoMapper(typeof(AutoMapperAPI));
-builder.Services.AddDbContext<ApplicationDbContext>(x => x.UseSqlServer(@"Data Source=DESKTOP-DLTH8DC;Initial Catalog=Restaurent;Integrated Security=True;TrustServerCertificate=True"));
 
 var app = builder.Build();
 

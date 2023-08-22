@@ -5,9 +5,11 @@ using Contracts.Dtos;
 using Contracts.InterFaces;
 using Contracts.UpdateObject;
 using Domain;
+using Entity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -16,74 +18,83 @@ namespace Service
     public class CocktailService : ICocktailService
     {
         private readonly IMapper _mapper;
+        private readonly ApplicationDbContext _context;
 
-        public CocktailService(IMapper mapper)
+        public CocktailService(IMapper mapper, ApplicationDbContext context)
         {
             _mapper = mapper;
+            _context = context;
         }
 
-        public List<CocktailDto> GetCocktails()
+        public async Task<List<CocktailDto>> GetCocktails()
         {
-            List<Cocktail> listOfCocktail = new()
+            var list = _context.Cocktail.ToList();
+
+            var mappedList = _mapper.Map<List<Cocktail>, List<CocktailDto>>(list);
+
+            await _context.SaveChangesAsync();
+
+            return mappedList;
+
+        }
+
+        public async Task<bool> CreateCocktail(CreateCocktailDto createCocktailDto)
+        {
+                var mappedCocktail = _mapper.Map<CreateCocktailDto,Cocktail>(createCocktailDto);
+
+                mappedCocktail.CreatedBy = 1;
+                mappedCocktail.CreatedDate = DateTime.Now;
+                mappedCocktail.UpdateBy = null;
+                mappedCocktail.UpdateDate = null;
+                mappedCocktail.Deleted = false;
+                mappedCocktail.DeletedBy = 0;
+                mappedCocktail.DeletedDate = null;
+
+                _context.Cocktail.Add(mappedCocktail);
+                await _context.SaveChangesAsync();
+                return true;
+        }
+
+        public async Task<bool> UpdateCocktail(UpdateCocktailDto updateCocktailDto)
+        {
+            var matchingCocktail = _context.Cocktail.Find(updateCocktailDto.Id);
+            if(matchingCocktail != null)
             {
-                new Cocktail { Id = 1, Price = 10, Name = "Test Cocktail 1"},
-                new Cocktail { Id = 2, Price = 20, Name = "Test Cocktail 2"},
-                new Cocktail { Id = 3, Price = 30, Name = "Test Cocktail 3"}
-            };
+                var mapping = _mapper.Map(updateCocktailDto, matchingCocktail);
 
-            var mapping = _mapper.Map<List<Cocktail>, List<CocktailDto>>(listOfCocktail);
-
-            return mapping;
-        }
-        public List<CocktailDto> CreateCocktail(CreateCocktailDto createCocktailDto)
-        {
-            var allCocktails = GetCocktails();
-
-            var mappedCocktail = _mapper.Map<Cocktail>(createCocktailDto);
-            
-            var mappedCocktailDto = _mapper.Map<CocktailDto>(mappedCocktail);
-            
-            allCocktails.Add(mappedCocktailDto);
-
-            return allCocktails;
-            
-        }
-        public List<CocktailDto> UpdateCocktail(UpdateCocktailDto updateCocktailDto)
-        {
-            var allCocktails = GetCocktails();
-
-            if(updateCocktailDto == null)
+                mapping.UpdateDate = DateTime.Now;
+                mapping.UpdateBy = 1;
+                _context.Update(mapping);
+                await _context.SaveChangesAsync();
+                return true;
+            }
+            else
             {
-                return GetCocktails();
+                return false;
             }
 
-            var matchingCocktailDto = allCocktails.FirstOrDefault(cocktailDto => cocktailDto.Id == updateCocktailDto.Id);
-
-            if (matchingCocktailDto != null)
-            {
-                matchingCocktailDto.Price = updateCocktailDto.Price;
-                matchingCocktailDto.Name = updateCocktailDto.Name;
-            }
-
-            var mappedCocktail = _mapper.Map<Cocktail>(matchingCocktailDto);
-            
-            //There is supposed to be a line to send the original object to the database
-
-            var mappedCocktailDto = _mapper.Map<CocktailDto>(mappedCocktail);
-
-            return allCocktails;
         }
-        public CocktailDto GetCocktailById(int id)
+
+
+        public async Task<CocktailDto> GetCocktailById(int id)
         {
-            var allCocktails = GetCocktails();
+            var matchingCocktail = _context.Cocktail.Find(id);
 
-            var matchingCocktailWithSameId = allCocktails.FirstOrDefault(cocktail => cocktail.Id == id);
+            var mappedMatchingCocktail = _mapper.Map<Cocktail,CocktailDto>(matchingCocktail);
 
-            var returnedCocktail = _mapper.Map<Cocktail>(matchingCocktailWithSameId);
+            await _context.SaveChangesAsync();
 
-            var returnedCocktailDto = _mapper.Map<CocktailDto>(returnedCocktail);
+            return mappedMatchingCocktail;
+        }
 
-            return returnedCocktailDto;
+        public async Task<bool> DeleteCocktail(int id)
+        {
+            var list = _context.Cocktail.ToList();
+            var matchingCocktail = list.FirstOrDefault(cocktail => cocktail.Id == id);
+            matchingCocktail.Deleted = true;
+            matchingCocktail.DeletedBy = 1;
+            await _context.SaveChangesAsync();
+            return true;
         }
 
     }

@@ -21,7 +21,7 @@ namespace Service
             var menu = new MenuDto();
 
             var drinkDto = _drinkService.GetDrinks();
-            var foodDto = await _foodService.GetFoods();
+            //var foodDto = _foodService.GetFoods();
             var cocktailDto = _cocktailService.GetCocktails();
 
             menu.Drinks = drinkDto;
