@@ -4,6 +4,7 @@ using Contracts.Dtos;
 using Contracts.InterFaces;
 using Contracts.UpdateObject;
 using Domain;
+using Entity;
 
 namespace Service
 {
@@ -12,74 +13,93 @@ namespace Service
     {
 
         private readonly IMapper _mapper;
+        private readonly ApplicationDbContext _Context;
 
-
-        public FoodService(IMapper mapper)
+        public FoodService(IMapper mapper, ApplicationDbContext context)
         {
             _mapper = mapper;
-
+            _Context = context;
         }
 
 
-        public List<FoodDto> GetFoods()
+
+        public async Task<List<FoodDto>> GetFoods()
         {
-            var foods = new List<Food>
-            {
-                new Food { Id = 1, Name = "orange", Price = 1.99 },
-                new Food { Id = 2, Name = "burger", Price = 2.49 },
+            //var foods = new List<Food>
+            //{
+            //    new Food { Id = 1, Name = "orange", Price = 1.99 },
+            //    new Food { Id = 2, Name = "burger", Price = 2.49 },
 
-            };
-            var mapping = _mapper.Map<List<Food>, List<FoodDto>>(foods);
+            //};
 
-            return mapping;
+
+            //var mapping = _mapper.Map<List<Food>, List<FoodDto>>(foods);
+
+            //return mapping;
+            var matchedFood = _Context.Foods;
+            var foodDto = _mapper.Map<List<FoodDto>>(matchedFood);
+           
+            return foodDto;
+
+
+
+
         }
 
-        public List<FoodDto> CreateFood(CreateFoodDto createFoodDto)
+        public async Task CreateFood(CreateFoodDto createFoodDto)
         {
-
-            var ListFood = GetFoods();
-            var mapping = _mapper.Map<CreateFoodDto, Food>(createFoodDto);
-            var mapping2 = _mapper.Map<Food, FoodDto>(mapping);
-            ListFood.Add(mapping2);
-
-            return ListFood;
-
+            var mapping = _mapper?.Map<CreateFoodDto, Food>(createFoodDto);
+            mapping.CreatedDate = DateTime.Now;
+            var food = _Context.Add(mapping);
+            await _Context.SaveChangesAsync();
         }
 
 
-        public List<FoodDto> UpdateFood(UpdateFoodDto updateFoodDto)
+        public async Task UpdateFood(UpdateFoodDto updateFoodDto)
         {
-            var listFoods = GetFoods();
-
-            var mapping = _mapper.Map<UpdateFoodDto, Food>(updateFoodDto);
-            var mapping2 = _mapper.Map<Food, FoodDto>(mapping);
-            var matchedFood = listFoods.FirstOrDefault(food => food.Id == mapping2.Id);
+           
+            var matchedFood = _Context.Foods.FirstOrDefault(food => food.Id == updateFoodDto.Id);
             if (matchedFood != null)
             {
-                matchedFood.Name = mapping2.Name;
-                matchedFood.Price = mapping2.Price;
+                var mapping = _mapper.Map(matchedFood,updateFoodDto);
+
+             
+                matchedFood.UpdateDate = DateTime.Now;
+                
+                _Context.Foods.Update(matchedFood);
+                await _Context.SaveChangesAsync();
+
             }
 
-            return listFoods;
 
         }
 
 
-        public FoodDto GetFoodById(int id)
+        public async Task<FoodDto> GetFoodById(int id)
         {
-            var listFoods = GetFoods();
+            var matchedFood = _Context.Foods.FirstOrDefault(food => food.Id == id);
 
+            if (matchedFood != null)
+            {
+                var foodDto = _mapper.Map<FoodDto>(matchedFood);
+                return foodDto;
+            }
 
-            var matchedFood = listFoods.FirstOrDefault(food => food.Id == id);
-
-            var mapping = _mapper.Map<FoodDto, Food>(matchedFood);
-            var mapping2= _mapper.Map<Food, FoodDto>(mapping);
-
-            return mapping2;
-
-
+            return null; 
         }
 
+        public async Task DeleteFoodById(int id)
+        {
+            var matchedFood = _Context.Foods.FirstOrDefault(food => food.Id == id);
+            if (matchedFood != null)
+            {
+                matchedFood.DeletedDate = DateTime.Now;
+                matchedFood.Deleted = true;
+                _Context.Foods.Update(matchedFood);
+                await _Context.SaveChangesAsync();
 
+            }
+
+        }
     }
 }

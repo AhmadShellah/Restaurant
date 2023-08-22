@@ -3,7 +3,6 @@ using Contracts.Dtos;
 using Contracts.InterFaces;
 using Contracts.UpdateObject;
 using Microsoft.AspNetCore.Mvc;
-using Service;
 
 namespace Restaurant.Controllers
 {
@@ -19,40 +18,47 @@ namespace Restaurant.Controllers
 
         [HttpGet]
         [Route("api/Food/GetFoods")]
-        public List<FoodDto> GetFoods()
+        public async Task<List<FoodDto>> GetFoods()
         {
-            var FoodGot = _foodService.GetFoods();
+            var FoodGot = await _foodService.GetFoods();
 
             return FoodGot;
         }
 
         [HttpPost]
         [Route("api/Food/CreateFood")]
-        public List<FoodDto> CreateFood(CreateFoodDto createFoodDto)
+        public async Task CreateFood(CreateFoodDto createFoodDto)
         {
-            var createdFoodDto = _foodService.CreateFood(createFoodDto);
-            return createdFoodDto;
+            await _foodService.CreateFood(createFoodDto);
+            
         }
 
         [HttpPut]
-        [Route("api/Drinks/UpdateFoods")]
+        [Route("api/Food/UpdateFoods")]
 
-        public List<FoodDto> UpdateFood(UpdateFoodDto updateFoodDto)
+        public async Task UpdateFood(UpdateFoodDto updateFoodDto)
         {
-            var updatedDrinkDto = _foodService.UpdateFood(updateFoodDto);
-            return updatedDrinkDto;
+            await _foodService.UpdateFood(updateFoodDto);
+            
         }
 
 
 
         [HttpGet]
-        [Route("api/Drinks/GetFoodById")]
-        public FoodDto GetFoodById(int id)
+        [Route("api/Food/GetFoodById")]
+        public async Task<FoodDto> GetFoodById(int id)
         {
-            var FoodGotById = _foodService.GetFoodById(id);
+            var FoodGotById = await _foodService.GetFoodById(id);
 
             return FoodGotById;
         }
 
+        [HttpDelete]
+        [Route("api/Food/DeleteById")]
+        public async Task DeleteFoodById(int id)
+        {
+            await _foodService.DeleteFoodById(id);
+
+        }
     }
 }
