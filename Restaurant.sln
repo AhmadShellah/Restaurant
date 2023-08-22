@@ -3,19 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.33927.210
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Restaurant", "Restaurant\Restaurant.csproj", "{39C471D7-F088-4E13-806A-AFFAC68FECAD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Restaurant", "Restaurant\Restaurant.csproj", "{39C471D7-F088-4E13-806A-AFFAC68FECAD}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "Domain\Domain.csproj", "{D6F82A7B-54E6-45EE-90C4-C7A585D45FB2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{D6F82A7B-54E6-45EE-90C4-C7A585D45FB2}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Service", "Service\Service.csproj", "{293AB678-FE9C-4F98-AF97-05341DA87088}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service", "Service\Service.csproj", "{293AB678-FE9C-4F98-AF97-05341DA87088}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Manager", "Manager\Manager.csproj", "{0B5041EE-5B4D-4643-92D9-D84173287415}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Manager", "Manager\Manager.csproj", "{0B5041EE-5B4D-4643-92D9-D84173287415}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Contracts", "Contracts\Contracts.csproj", "{DFD7F8E9-F214-4FCB-915A-00BD909904BE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contracts", "Contracts\Contracts.csproj", "{DFD7F8E9-F214-4FCB-915A-00BD909904BE}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RestaurantWebApplication", "RestaurantWebApplication\RestaurantWebApplication.csproj", "{8407AD0A-9D81-455C-BA22-7ED9D195ABA7}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entity", "Entity\Entity.csproj", "{AADBC663-B26E-4F45-89FB-2BC237E72F6A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestaurantWebApplication", "RestaurantWebApplication\RestaurantWebApplication.csproj", "{8407AD0A-9D81-455C-BA22-7ED9D195ABA7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -47,10 +45,6 @@ Global
 		{8407AD0A-9D81-455C-BA22-7ED9D195ABA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8407AD0A-9D81-455C-BA22-7ED9D195ABA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8407AD0A-9D81-455C-BA22-7ED9D195ABA7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AADBC663-B26E-4F45-89FB-2BC237E72F6A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AADBC663-B26E-4F45-89FB-2BC237E72F6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AADBC663-B26E-4F45-89FB-2BC237E72F6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AADBC663-B26E-4F45-89FB-2BC237E72F6A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
