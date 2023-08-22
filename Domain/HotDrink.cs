@@ -4,11 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Contracts.CreateObject
+namespace Domain
 {
-    public class CreateCocktailDto : BaseClass
+    public class HotDrink: BaseClass
     {
-        public string? Name { get; set; }
+        public string Name { get; set; }
         public double Price { get; set; }
+
     }
 }

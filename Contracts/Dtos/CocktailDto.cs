@@ -1,4 +1,6 @@
-﻿namespace Contracts.Dtos
+﻿using System.Data.Entity;
+
+namespace Contracts.Dtos
 {
     public class CocktailDto
     {

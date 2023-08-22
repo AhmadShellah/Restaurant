@@ -1,10 +1,9 @@
 ﻿namespace Domain
 {
-    public class Cocktail
+    public class Cocktail : BaseClass
     {
-        public int Id { get; set; }
         public double Price { get; set; }
-        public string? Name { get; set; }
+        public string? Name { get; set; }                                                                   
 
     }
 }

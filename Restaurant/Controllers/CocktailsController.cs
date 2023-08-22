@@ -19,30 +19,37 @@ namespace Restaurant.Controllers
 
         [HttpGet]
         [Route("api/Cocktails/GetCocktails")]
-        public List<CocktailDto> GetCocktails()
+        public async Task<List<CocktailDto>> GetCocktails()
         {
-            return _cocktailService.GetCocktails();
+            return await _cocktailService.GetCocktails();
         }
 
         [HttpPost]
         [Route("api/Cocktails/CreateCocktail")]
-        public List<CocktailDto> CreateCocktail(CreateCocktailDto createCocktailDto)
+        public async Task<bool> CreateCocktail([FromBody]CreateCocktailDto createCocktailDto)
         {
-            return _cocktailService.CreateCocktail(createCocktailDto);
+            return await _cocktailService.CreateCocktail(createCocktailDto);
         }
 
         [HttpPut]
         [Route("api/Cocktails/UpdateCocktail")]
-        public List<CocktailDto> UpdateCocktail([FromBody]UpdateCocktailDto updateCocktailDto)
+        public async Task<bool> UpdateCocktail(UpdateCocktailDto updateCocktailDto)
         {
-            return _cocktailService.UpdateCocktail(updateCocktailDto);
+            return await _cocktailService.UpdateCocktail(updateCocktailDto);
         }
 
         [HttpGet]
         [Route("api/Cocktails/GetCocktailById")]
-        public CocktailDto GetCocktailById(int id)
+        public async Task<CocktailDto> GetCocktailById(int id)
         {
-            return _cocktailService.GetCocktailById(id);
+            return await _cocktailService.GetCocktailById(id);
+        }
+
+        [HttpDelete]
+        [Route("api/Cocktails/DeleteCocktail")]
+        public async Task<bool> DeleteCocktail(int id)
+        {
+            return await _cocktailService.DeleteCocktail(id);
         }
     }
 }
