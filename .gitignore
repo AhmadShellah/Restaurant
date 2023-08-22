@@ -383,5 +383,5 @@ FodyWeavers.xsd
 /Manager/obj/Manager.csproj.nuget.g.props
 /Manager/obj/project.assets.json
 /Manager/obj/project.nuget.cache
-/Contracts/bin/Debug/net6.0/Contracts.dll
-/Contracts/bin/Debug/net6.0/Contracts.pdb
+/Manager/obj/Debug/net6.0/Manager.csproj.AssemblyReference.cache
+/Manager/obj/Debug/net6.0/Manager.csproj.AssemblyReference.cache
